@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let gate = prompt("Choose gate: a, b, or c");
+    let win = false;
+
+    switch (gate) {
+      case "a":
+        alert("Gate A: empty");
+        break;
+      case "b":
+        alert("Gate B: main prize");
+        win = true;
+        break;
+      case "c":
+        alert("Gate C: empty");
+        break;
+      default:
+        alert("No gate " + String(gate));
+    }
+
+    if (win) {
+      alert("Winner!");
+    }
+
+    // section practice 1
+    let number = prompt("Enter number", 0)
+    if (90 < number && number < 110){
+      alert("Bingo!")
+    }else{
+      alert("miss")
+    }
+
+    // section practice 2
+    let message = 90 < number && number < 110 ? "Bigno!" : "miss";
+    alert(message)
+
+    let firstNumber = Number(prompt("enter first number"))
+    let secondNumber = Number(prompt("enter second number"))
+    let operand = prompt("enter operand( +, -, * or /)")
+    let result;
+
+    if (!Number.isNaN(firstNumber) && !Number.isNaN(secondNumber)) {
+      switch (operand) {
+        case "+":
+          result = firstNumber + secondNumber;
+          break;
+
+        case "-":
+          result = firstNumber - secondNumber;
+          break;
+
+        case "*":
+          result = firstNumber * secondNumber;
+          break;
+
+        case "/":
+          result = firstNumber / secondNumber;
+          break;
+
+        default:
+          result = "error has occured"
+
+      }
+    } else {
+      result = "at leas one number you enter is NaN"
+    }
+
+    alert(result);
+
+
+    let contacts = [
+      {
+        name: "Maxwell Wright",
+        phone: "(0191) 719 6495",
+        email: "Curabitur.egestas.nunc@nonummyac.co.uk"
+      },
+      {
+        name: "Raja Villarreal",
+        phone: "0866 398 2895",
+        email: "posuere.vulputate@sed.com"
+      },
+      {
+        name: "Helen Richards",
+        phone: "0800 1111",
+        email: "libero@convallis.edu"
+      }
+    ];
+
+    let action = prompt('Enter action first, last of New').toLowerCase();
+    if (action == "first") {
+      alert(`name: ${contacts[0].name} phone: ${contacts[0].phone} email: ${contacts[0].email}`)
+    }
+    else if (action == "last") {
+      let last = contacts[contacts.length - 1];
+      alert(`name: ${last.name} phone: ${last.phone} email: ${last.email}`)
+    }
+    else if (action == "new") {
+      let name = prompt("Enter name")
+      let phone = prompt("Enter phone")
+      let email = prompt("Enter email")
+
+      if (name && email && phone){
+        contacts.push({name, email, phone})
+      }else{
+        alert("Error: All fields (name, phone, email) must be filled!")
+      }
+    }else{
+      alert("Invalid choice. Please enter 'first', 'last', or 'new'.");
+    }
+
+    console.log(contacts);
+    
+  </script>
+
+</body>
+
+</html>
