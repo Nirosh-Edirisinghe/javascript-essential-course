@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let isOver = false;
+    let counter = 0;
+    while (isOver == false) {
+      let continueloop = confirm(`${counter} constine the loop`)
+      isOver = continueloop == true ? false : true;
+      counter += 1
+    }
+
+    let names = [];
+    let over = false;
+    while (!over) {
+      let name = prompt('enter your name or cacel')
+      if (name != null) {
+        names.push(name)
+      } else {
+        over = true
+      }
+    }
+    for (let i = 0; i < names.length; i++) {
+      console.log(names[i]);
+      console.log(names.length);
+
+    }
+
+    // section practise
+    // test 2
+    let fnum = prompt('enter first number');
+    let snum = prompt('enter second number');
+
+    if (!Number.isNaN(fnum) && !Number.isNaN(snum) && fnum > snum) {
+      for (let i = fnum; i >= snum; i -= 10) {
+        console.log(i);
+      }
+    }
+
+    // test 4
+    let movives = []
+    while (true) {
+      let mName = prompt('enter movive name')
+      let rating = Number(prompt('entere rating'))
+      if (mName == null || rating == null) {
+        break
+      } else {
+        movives.push({
+          name: mName,
+          rate: rating
+        })
+      }
+      console.log(movives);
+    }
+
+    for (let movie of movives) {
+      if (movie.rate >= 7) {
+        console.log(`${movie.name} ${movie.rate}`);
+      }
+    }
+
+
+    // test 6
+
+    while (true) {
+      let firstNumber = Number(prompt("enter first number"))
+      let secondNumber = Number(prompt("enter second number"))
+      let operand = prompt("enter operand( +, -, * or /)")
+      let result;
+
+      firstNumber = Number(firstNumber);
+      secondNumber = Number(secondNumber);
+
+      if (!Number.isNaN(firstNumber) && !Number.isNaN(secondNumber)) {
+        switch (operand) {
+          case "+":
+            result = firstNumber + secondNumber;
+            break;
+
+          case "-":
+            result = firstNumber - secondNumber;
+            break;
+
+          case "*":
+            result = firstNumber * secondNumber;
+            break;
+
+          case "/":
+            result = firstNumber / secondNumber;
+            break;
+
+          default:
+            result = "error has occured"
+
+        }
+      } else {
+        result = "at leas one number you enter is NaN"
+      }
+
+      alert(result);
+    }
+
+
+    // LAB
+    let contacts = [
+      {
+        name: "Maxwell Wright",
+        phone: "(0191) 719 6495",
+        email: "Curabitur.egestas.nunc@nonummyac.co.uk"
+      },
+      {
+        name: "Raja Villarreal",
+        phone: "0866 398 2895",
+        email: "posuere.vulputate@sed.com"
+      },
+      {
+        name: "Helen Richards",
+        phone: "0800 1111",
+        email: "libero@convallis.edu"
+      }
+    ];
+
+    while (true) {
+      let action = prompt('enter action first,last,all,new and quite');
+      if (action == 'first') {
+        alert(`${contacts[0].name} ${contacts[0].email} ${contacts[0].phone}`)
+      }
+      else if (action == 'last') {
+        let last = contacts[contacts.length - 1];
+        alert(`${last.name} ${last.email} ${last.phone}`)
+      }
+      else if (action == 'all') {
+        for (let conatact of contacts) {
+          console.log(`${conatact.name} ${conatact.email} ${conatact.phone}`);
+        }
+      }
+      else if (action == 'new') {
+        let name = prompt('enter name')
+        let email = prompt('enter email')
+        let phone = prompt('enter phone number')
+
+        if (name && email && phone) {
+          contacts.push({ name, email, phone })
+          for (let conatact of contacts) {
+            console.log(`${conatact.name} ${conatact.email} ${conatact.phone}`);
+          }
+
+        } else {
+          alert("some filed is empty")
+        }
+      }
+
+      else if (action == 'quite') {
+        break;
+      }
+      else {
+        alert("Invalid choice. Please enter 'first', 'last', or 'new'.");
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
